@@ -1,0 +1,84 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Portfolio – Okan Lülleci" lang="de">
+  <section class="section">
+    <div class="container">
+      <h1 class="page-title">Portfolio</h1>
+      <div class="grid">
+        <!-- Kartlar içerik gelince buraya eklenecek -->
+        <div class="portfolio-card">
+          <div class="portfolio-card__img placeholder"></div>
+          <div class="portfolio-card__body">
+            <h2>Projektname</h2>
+            <p>Kurze Beschreibung des Projekts.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.25rem;
+  }
+
+  .section {
+    padding: 4rem 0;
+  }
+
+  .page-title {
+    font-size: clamp(1.75rem, 6vw, 2.75rem);
+    margin-bottom: 2rem;
+  }
+
+  .grid {
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 600px) {
+    .grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (min-width: 900px) {
+    .grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .portfolio-card {
+    border-radius: 4px;
+    overflow: hidden;
+    background-color: var(--color-cream);
+  }
+
+  .portfolio-card__img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+  }
+
+  .portfolio-card__img.placeholder {
+    background-color: var(--color-steel);
+    opacity: 0.3;
+  }
+
+  .portfolio-card__body {
+    padding: 1rem 1.25rem 1.25rem;
+  }
+
+  .portfolio-card__body h2 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+  }
+
+  .portfolio-card__body p {
+    font-size: 0.875rem;
+    color: var(--color-steel);
+  }
+</style>

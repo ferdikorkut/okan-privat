@@ -1,0 +1,358 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Okan Lülleci" description="Grafikdesigner, Webdesigner und Marketingexperte" lang="de" heroPage={true}>
+
+  <!-- HERO SLIDER -->
+  <section class="hero">
+    <div class="slider">
+      <div class="slider__track" id="sliderTrack">
+        <div class="slider__slide">
+          <img src="/images/hero-0.png" alt="Okan Lülleci" />
+        </div>
+        <div class="slider__slide">
+          <img src="/images/hero-2.png" alt="Okan Lülleci" />
+        </div>
+        <div class="slider__slide">
+          <img src="/images/hero-3.png" alt="Okan Lülleci" />
+        </div>
+      </div>
+
+      <div class="slider__overlay">
+        <h2 class="slider__heading">Der Marketing Experte</h2>
+        <a href="/#leistungen" class="slider__btn">Marketing & Konzeption</a>
+      </div>
+
+      <button class="slider__arrow slider__arrow--prev" id="prevBtn" aria-label="Zurück">
+        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="currentColor"><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+      </button>
+      <button class="slider__arrow slider__arrow--next" id="nextBtn" aria-label="Weiter">
+        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="currentColor"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+      </button>
+
+      <div class="slider__dots" id="sliderDots">
+        <button class="slider__dot is-active" aria-label="Slide 1"></button>
+        <button class="slider__dot" aria-label="Slide 2"></button>
+        <button class="slider__dot" aria-label="Slide 3"></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ÜBER MICH -->
+  <section class="section" id="ueber-mich">
+    <div class="container">
+      <h2 class="section__title">Okan Lülleci  – der Marketing Experte</h2>
+      <p class="section__text">
+        Okan Lülleci ist Marketing Experte, externer CMO und Thought Leader für praxisorientiertes Marketing. Er verbindet strategische Klarheit mit konsequenter Umsetzung und begleitet Organisationen bei der Entwicklung wirksamer Marketing-, Digital- und Kommunikationsstrategien. Im Zentrum stehen Kundenbindung, Haltung und nachhaltiger Unternehmenserfolg – branchenübergreifend und konsequent wirksam.
+      </p>
+    </div>
+  </section>
+
+  <!-- LEISTUNGEN -->
+  <section class="section section--alt" id="leistungen">
+    <div class="container">
+      <h2 class="section__title">Leistungen</h2>
+      <div class="grid grid--3">
+        <div class="card">
+          <h3>Grafikdesign</h3>
+          <p>Platzhaltertext</p>
+        </div>
+        <div class="card">
+          <h3>Webdesign</h3>
+          <p>Platzhaltertext</p>
+        </div>
+        <div class="card">
+          <h3>Marketing</h3>
+          <p>Platzhaltertext</p>
+        </div>
+        <div class="card">
+          <h3>Digitaldruck</h3>
+          <p>Platzhaltertext</p>
+        </div>
+        <div class="card">
+          <h3>Fahrzeugbeschriftung</h3>
+          <p>Platzhaltertext</p>
+        </div>
+        <div class="card">
+          <h3>Messeauftritte</h3>
+          <p>Platzhaltertext</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO ÖNİZLEME -->
+  <section class="section" id="portfolio">
+    <div class="container">
+      <h2 class="section__title">Portfolio</h2>
+      <div class="grid grid--2">
+        <div class="portfolio-card">
+          <div class="portfolio-card__img placeholder"></div>
+          <div class="portfolio-card__body">
+            <h3>Projektname</h3>
+            <p>Kurze Beschreibung des Projekts.</p>
+          </div>
+        </div>
+        <div class="portfolio-card">
+          <div class="portfolio-card__img placeholder"></div>
+          <div class="portfolio-card__body">
+            <h3>Projektname</h3>
+            <p>Kurze Beschreibung des Projekts.</p>
+          </div>
+        </div>
+      </div>
+      <div class="section__cta">
+        <a href="/portfolio" class="btn btn--outline">Alle Projekte ansehen</a>
+      </div>
+    </div>
+  </section>
+
+<script>
+  const track = document.getElementById('sliderTrack') as HTMLElement;
+  const dots = document.querySelectorAll('.slider__dot');
+  const total = 3;
+  let current = 0;
+
+  function goTo(index: number) {
+    current = (index + total) % total;
+    track.style.transform = `translateX(-${current * 100}%)`;
+    dots.forEach((d, i) => d.classList.toggle('is-active', i === current));
+  }
+
+  document.getElementById('prevBtn')?.addEventListener('click', () => goTo(current - 1));
+  document.getElementById('nextBtn')?.addEventListener('click', () => goTo(current + 1));
+  dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
+</script>
+
+</Layout>
+
+<style>
+  .hero {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .slider {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .slider__track {
+    display: flex;
+    transition: transform 0.5s ease;
+  }
+
+  .slider__slide {
+    min-width: 100%;
+  }
+
+  .slider__slide img {
+    width: 100%;
+    height: 120vw;
+    max-height: 1080px;
+    min-height: 700px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .slider__arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--color-white);
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    z-index: 10;
+    padding: 0;
+    filter: drop-shadow(0 1px 3px rgba(0,0,0,0.5));
+  }
+
+  .slider:hover .slider__arrow {
+    opacity: 1;
+  }
+
+  .slider__arrow--prev { left: 0.2rem; }
+  .slider__arrow--next { right: 0.2rem; }
+
+  .slider__dots {
+    display: none;
+  }
+
+  .slider__overlay {
+    position: absolute;
+    top: calc(50% + 1.5rem);
+    left: 3rem;
+    right: 3rem;
+    transform: translateY(-50%);
+    text-align: left;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .slider__overlay {
+      left: max(1.25rem, calc((100% - 1200px) / 2 - 2rem));
+      right: max(1.25rem, calc((100% - 1200px) / 2 + 1.25rem));
+    }
+  }
+
+  .slider__heading {
+    color: var(--color-white);
+    font-size: 70px;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    white-space: normal;
+    word-break: break-word;
+  }
+
+  .slider__btn {
+    display: inline-block;
+    margin: 0;
+    padding: 0.75rem 2rem;
+    border: 2px solid var(--color-white);
+    border-radius: 50px;
+    background-color: rgba(255, 255, 255, 0.3);
+    color: var(--color-white);
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 1.15rem;
+    letter-spacing: 0.02em;
+    transition: background-color 0.2s;
+  }
+
+  .slider__btn:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+
+  .btn {
+    display: inline-block;
+    background-color: var(--color-red);
+    color: var(--color-white);
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 0.75rem 1.75rem;
+    border-radius: 2px;
+    transition: opacity 0.2s;
+  }
+
+  .btn:hover { opacity: 0.85; }
+
+  .btn--outline {
+    background: none;
+    border: 2px solid var(--color-dark);
+    color: var(--color-dark);
+  }
+
+  .btn--outline:hover {
+    background-color: var(--color-dark);
+    color: var(--color-white);
+    opacity: 1;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2.1rem;
+  }
+
+  .section {
+    padding: 3rem 0;
+  }
+
+  .section--alt {
+    background-color: var(--color-cream);
+  }
+
+  .section__title {
+    font-size: clamp(2rem, 6vw, 3rem);
+    margin-bottom: 1.5rem;
+    color: var(--color-red);
+  }
+
+  .section__text {
+    max-width: 100%;
+    line-height: 1.8;
+  }
+
+  .section__cta {
+    margin-top: 2rem;
+    text-align: center;
+  }
+
+  .grid {
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  .grid--2 { grid-template-columns: 1fr; }
+  .grid--3 { grid-template-columns: 1fr; }
+
+  @media (min-width: 600px) {
+    .grid--2 { grid-template-columns: repeat(2, 1fr); }
+    .grid--3 { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (min-width: 900px) {
+    .grid--3 { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .card {
+    background-color: var(--color-white);
+    padding: 1.5rem;
+    border-radius: 4px;
+  }
+
+  .card h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--color-red);
+  }
+
+  .card p {
+    font-size: 0.9rem;
+  }
+
+  .portfolio-card {
+    border-radius: 4px;
+    overflow: hidden;
+    background-color: var(--color-cream);
+  }
+
+  .portfolio-card__img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+  }
+
+  .portfolio-card__img.placeholder {
+    background-color: var(--color-steel);
+    opacity: 0.3;
+  }
+
+  .portfolio-card__body {
+    padding: 1rem 1.25rem 1.25rem;
+  }
+
+  .portfolio-card__body h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+  }
+
+  .portfolio-card__body p {
+    font-size: 0.875rem;
+    color: var(--color-steel);
+  }
+</style>

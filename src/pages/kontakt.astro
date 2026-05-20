@@ -1,0 +1,139 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Kontakt – Okan Lülleci" lang="de">
+  <section class="section">
+    <div class="container">
+      <h1 class="page-title">Kontakt</h1>
+
+      <!-- MESAJ FORMU -->
+      <div class="contact-block">
+        <h2 class="block-title">Nachricht senden</h2>
+        <form class="form" action="https://formspree.io/f/FORMSPREE_ID" method="POST">
+          <!-- Formspree ID içerik gelince eklenecek -->
+          <div class="form__group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+          <div class="form__group">
+            <label for="email">E-Mail</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+          <div class="form__group">
+            <label for="message">Nachricht</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn">Absenden</button>
+        </form>
+      </div>
+
+      <!-- RANDEVU TAKVİMİ -->
+      <div class="contact-block">
+        <h2 class="block-title">Termin vereinbaren</h2>
+        <p class="block-desc">Wählen Sie einen freien Termin – ich melde mich zur Bestätigung.</p>
+        <!-- Cal.com embed buraya gelecek -->
+        <div class="cal-placeholder">
+          Cal.com Takvim – yakında eklenecek
+        </div>
+      </div>
+
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1.25rem;
+  }
+
+  .section {
+    padding: 4rem 0;
+  }
+
+  .page-title {
+    font-size: clamp(1.75rem, 6vw, 2.75rem);
+    margin-bottom: 3rem;
+  }
+
+  .contact-block {
+    margin-bottom: 4rem;
+  }
+
+  .block-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  .block-desc {
+    color: var(--color-steel);
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .form__group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .form__group label {
+    font-family: var(--font-heading);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-dark);
+  }
+
+  .form__group input,
+  .form__group textarea {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--color-sage);
+    border-radius: 2px;
+    background-color: var(--color-white);
+    color: var(--color-dark);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .form__group input:focus,
+  .form__group textarea:focus {
+    border-color: var(--color-dark);
+  }
+
+  .btn {
+    align-self: flex-start;
+    display: inline-block;
+    background-color: var(--color-red);
+    color: var(--color-white);
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 0.75rem 1.75rem;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+
+  .btn:hover { opacity: 0.85; }
+
+  .cal-placeholder {
+    background-color: var(--color-cream);
+    border-radius: 4px;
+    padding: 3rem;
+    text-align: center;
+    color: var(--color-steel);
+    font-size: 0.9rem;
+  }
+</style>

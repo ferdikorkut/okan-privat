@@ -1,0 +1,94 @@
+---
+interface Props {
+  lang?: string;
+}
+const { lang = 'de' } = Astro.props;
+
+const legal = {
+  de: [
+    { label: 'AGB',                    href: '/agb' },
+    { label: 'Impressum',              href: '/impressum' },
+    { label: 'Datenschutzerklärung',   href: '/datenschutz' },
+  ],
+  en: [
+    { label: 'Terms',   href: '/en/terms' },
+    { label: 'Imprint', href: '/en/imprint' },
+    { label: 'Privacy', href: '/en/privacy' },
+  ],
+  tr: [
+    { label: 'Kullanım Şartları', href: '/tr/kullanim-sartlari' },
+    { label: 'Künye',             href: '/tr/kunye' },
+    { label: 'Gizlilik',          href: '/tr/gizlilik' },
+  ],
+};
+
+const links = legal[lang as keyof typeof legal] ?? legal.de;
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="footer__inner">
+    <p class="footer__copy">&copy; {year} Okan Lülleci</p>
+
+    <nav class="footer__legal" aria-label="Rechtliche Links">
+      <ul>
+        {links.map(link => (
+          <li><a href={link.href}>{link.label}</a></li>
+        ))}
+      </ul>
+    </nav>
+
+    <div class="footer__social">
+      <!-- Sosyal medya linkleri bilgi gelince eklenecek -->
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background-color: var(--color-dark);
+    color: var(--color-cream);
+    padding: 2rem 1.25rem;
+    margin-top: 4rem;
+  }
+
+  .footer__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .footer__copy {
+    font-size: 0.875rem;
+    color: var(--color-steel);
+  }
+
+  .footer__legal ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem 1.5rem;
+  }
+
+  .footer__legal a {
+    font-size: 0.875rem;
+    color: var(--color-cream);
+    transition: color 0.2s;
+  }
+
+  .footer__legal a:hover {
+    color: var(--color-red);
+  }
+
+  @media (min-width: 768px) {
+    .footer__inner {
+      flex-direction: row;
+      justify-content: space-between;
+      text-align: left;
+    }
+  }
+</style>
