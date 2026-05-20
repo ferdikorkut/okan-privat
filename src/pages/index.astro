@@ -199,6 +199,10 @@ import Layout from '../layouts/Layout.astro';
   }
 
   @media (min-width: 768px) {
+    .slider__heading {
+      font-size: 70px;
+    }
+
     .slider__overlay {
       left: max(1.25rem, calc((100% - 1200px) / 2 - 2rem));
       right: max(1.25rem, calc((100% - 1200px) / 2 + 1.25rem));
@@ -207,7 +211,7 @@ import Layout from '../layouts/Layout.astro';
 
   .slider__heading {
     color: var(--color-white);
-    font-size: 70px;
+    font-size: 55px;
     font-weight: 400;
     letter-spacing: -0.02em;
     text-shadow: 0 2px 8px rgba(0,0,0,0.4);
