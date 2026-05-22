@@ -44,8 +44,26 @@ import Layout from '../layouts/Layout.astro';
     <div class="container">
       <h2 class="section__title">Okan Lülleci  – der Marketing Experte</h2>
       <p class="section__text">
-        Okan Lülleci ist Marketing Experte, externer CMO und Thought Leader für praxisorientiertes Marketing. Er verbindet strategische Klarheit mit konsequenter Umsetzung und begleitet Organisationen bei der Entwicklung wirksamer Marketing-, Digital- und Kommunikationsstrategien. Im Zentrum stehen Kundenbindung, Haltung und nachhaltiger Unternehmenserfolg – branchenübergreifend und konsequent wirksam.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
       </p>
+
+      <div class="about-grid">
+        <div class="about-card">
+          <img src="/images/platzhalter.jpg" alt="Marketing Experte" class="about-card__img" />
+          <h3 class="about-card__title">Marketing Experte</h3>
+          <p class="about-card__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</p>
+        </div>
+        <div class="about-card">
+          <img src="/images/platzhalter.jpg" alt="CMO as a Service" class="about-card__img" />
+          <h3 class="about-card__title">CMO as a Service</h3>
+          <p class="about-card__text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores.</p>
+        </div>
+        <div class="about-card">
+          <img src="/images/platzhalter.jpg" alt="Marketing Edutainer" class="about-card__img" />
+          <h3 class="about-card__title">Marketing Edutainer</h3>
+          <p class="about-card__text">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -56,27 +74,27 @@ import Layout from '../layouts/Layout.astro';
       <div class="grid grid--3">
         <div class="card">
           <h3>Grafikdesign</h3>
-          <p>Platzhaltertext</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
         </div>
         <div class="card">
           <h3>Webdesign</h3>
-          <p>Platzhaltertext</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
         </div>
         <div class="card">
           <h3>Marketing</h3>
-          <p>Platzhaltertext</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
         </div>
         <div class="card">
           <h3>Digitaldruck</h3>
-          <p>Platzhaltertext</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
         </div>
         <div class="card">
           <h3>Fahrzeugbeschriftung</h3>
-          <p>Platzhaltertext</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
         </div>
         <div class="card">
           <h3>Messeauftritte</h3>
-          <p>Platzhaltertext</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
         </div>
       </div>
     </div>
@@ -91,14 +109,14 @@ import Layout from '../layouts/Layout.astro';
           <div class="portfolio-card__img placeholder"></div>
           <div class="portfolio-card__body">
             <h3>Projektname</h3>
-            <p>Kurze Beschreibung des Projekts.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
           </div>
         </div>
         <div class="portfolio-card">
           <div class="portfolio-card__img placeholder"></div>
           <div class="portfolio-card__body">
             <h3>Projektname</h3>
-            <p>Kurze Beschreibung des Projekts.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
           </div>
         </div>
       </div>
@@ -204,8 +222,8 @@ import Layout from '../layouts/Layout.astro';
     }
 
     .slider__overlay {
-      left: max(1.25rem, calc((100% - 1200px) / 2 - 2rem));
-      right: max(1.25rem, calc((100% - 1200px) / 2 + 1.25rem));
+      left: max(1.25rem, calc((100% - 1280px) / 2 - 2rem));
+      right: max(1.25rem, calc((100% - 1280px) / 2 + 1.25rem));
     }
   }
 
@@ -265,7 +283,7 @@ import Layout from '../layouts/Layout.astro';
   }
 
   .container {
-    max-width: 1200px;
+    max-width: 1280px;
     margin: 0 auto;
     padding: 0 2.1rem;
   }
@@ -325,7 +343,41 @@ import Layout from '../layouts/Layout.astro';
   }
 
   .card p {
-    font-size: 0.9rem;
+    font-size: 1rem;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    margin-top: 2.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .about-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .about-card__img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    display: block;
+  }
+
+  .about-card__title {
+    font-size: 1.4375rem;
+    font-weight: 700;
+    color: var(--color-red);
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .about-card__text {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--color-dark);
   }
 
   .portfolio-card {
@@ -356,7 +408,7 @@ import Layout from '../layouts/Layout.astro';
   }
 
   .portfolio-card__body p {
-    font-size: 0.875rem;
+    font-size: 1rem;
     color: var(--color-steel);
   }
 </style>

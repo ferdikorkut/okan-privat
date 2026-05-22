@@ -22,7 +22,7 @@ const { overlay = false } = Astro.props;
   .topbar {
     background-color: var(--color-dark);
     color: var(--color-cream);
-    padding: 0.4rem 1.25rem;
+    padding: 0.4rem 0;
   }
 
   .topbar--overlay {
@@ -31,12 +31,13 @@ const { overlay = false } = Astro.props;
     left: 0;
     width: 100%;
     z-index: 200;
-    background-color: rgba(41, 40, 39, 0.5);
+    background-color: rgba(41, 40, 39, 0.7);
   }
 
   .topbar__inner {
-    max-width: 1200px;
+    max-width: 1280px;
     margin: 0 auto;
+    padding: 0 1.25rem;
     display: flex;
     align-items: center;
     justify-content: center;
