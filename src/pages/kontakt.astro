@@ -11,7 +11,10 @@ import Layout from '../layouts/Layout.astro';
         <!-- MESAJ FORMU -->
         <div class="contact-block">
           <h2 class="block-title">Nachricht senden</h2>
-          <form class="form" action="https://formspree.io/f/FORMSPREE_ID" method="POST">
+          <form class="form" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="a31ff961-2845-4706-9638-b9f3c6fc488b" />
+            <input type="hidden" name="subject" value="Neue Nachricht von okanlulleci.de" />
+            <input type="hidden" name="from_name" value="Okan Lülleci Website" />
             <div class="form__group">
               <label for="name">Name</label>
               <input type="text" id="name" name="name" required />
